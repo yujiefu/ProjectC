@@ -7,7 +7,6 @@
 //输出形式：输出一行，输出这一天是这一年的第几天。
 //样例输入：2013 3 5
 //样例输出：64
-
 struct date
 {
 	int year;
@@ -15,7 +14,6 @@ struct date
 	int day;
 	
 };
-
 int main()
 {
 	struct date a;
@@ -36,7 +34,6 @@ int main()
 	
 	return 0;
 } 
-
 */
 
 
@@ -56,7 +53,6 @@ int main()
 //			2014A004 87 
 //			2014A005 77
 //样例输出	2017A003 66 
-
 #define N 30
 struct Stu
 {
@@ -78,7 +74,6 @@ struct Stu
 	 }
  	
  }
-
 int main()
 {
 	int n,i;
@@ -127,7 +122,6 @@ struct BookType
 	int num;
 	float price;
 }; 
-
 void sort(struct BookType bk[],int n)
 {
 	int i,j,k;
@@ -144,7 +138,6 @@ void sort(struct BookType bk[],int n)
 		 } 
 	}
 }
-
 float total(struct BookType bk[],int n)
 {
 	int i;
@@ -158,7 +151,6 @@ float total(struct BookType bk[],int n)
 	return total_price;
 	
 }
-
 int main()
 {
 	int n,i;
@@ -180,7 +172,6 @@ int main()
 	
 	return 0; 
 }
-
 */
 
 
@@ -189,7 +180,7 @@ int main()
 
 
 
-
+/*
 //0804 正向链表
 //问题描述：正向创建一个链表，并输出链表中的各个值。
 //输入形式：输入两行，第一行输入链表结点的个数，第二行依次输入链表节点的值，各个值之间以空格分隔。
@@ -198,25 +189,131 @@ int main()
 //			1 3 5 7 9 
 //样例输出：1 3 5 7 9  
 
+#include <stdlib.h>
+struct Node
+{
+	int num;
+	struct Node *next;
+};
+
+struct Node *creat(int n) 
+{
+	struct Node *head,*p,*q;
+	int i;
+	
+	p=q=(struct Node *)malloc(sizeof(struct Node));
+	scanf("%d",&p->num);
+	head=p;
+	
+	if(n==1)
+	p->next=NULL;
+	
+	else
+	{
+		for(i=1;i<n;i++)
+		{
+				p=(struct Node *)malloc(sizeof(struct Node));
+				scanf("%d",&p->num);
+				q->next=p;
+				q=p;
+				
+		}
+		q->next=NULL;
+	}
+	return head;
+}
+
+void print(struct Node *head)
+{
+	struct Node *p;
+	p=head;
+	
+	while(p!=NULL)
+	{
+			printf("%d",p->num);
+			p=p->next;	
+	}
+}
+
+int main()
+{
+	int n;
+	struct Node * head;
+	
+	scanf("%d",&n);
+	
+	head=creat(n);
+	print(head);
+	
+	return 0;
+	
+}
+*/
 
 
 
 
+/* 
+//0805 逆向链表
+
+#include <stdlib.h>
+struct Node
+{
+	int num;
+	struct Node *next;
+};
+
+struct Node *creat(int n) 
+{
+	struct Node *head,*p;
+	int i;
+	
+	p=(struct Node *)malloc(sizeof(struct Node));
+	scanf("%d",&p->num);
+	p->next=NULL;
+	head=p;
+	
 
 
+		for(i=1;i<n;i++)
+		{
+				p=(struct Node *)malloc(sizeof(struct Node));
+				scanf("%d",&p->num);
+				
+				p->next=head;
+				head=p;
+		}
+	
+		return head;
+}
 
+void print(struct Node *head)
+{
+	struct Node *p;
+	p=head;
+	
+	while(p!=NULL)
+	{
+			printf("%d",p->num);
+			p=p->next;	
+	}
+	
+}
 
+int main()
+{
+	int n;
+	struct Node * head;
+	
+	scanf("%d",&n);
+	
+	head=creat(n);
+	print(head);
+	
+	return 0;
+	
+}
 
-
-
-
-
-
-
-
-
-
-
-
+*/ 
 
 
